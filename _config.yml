@@ -4,11 +4,11 @@
 
 # Site
 title: 孙大旺的个人博客
-subtitle: ''
-description: ''
-keywords:
-author: John Doe
-language: en
+subtitle: 聊聊自己的技术与想法
+description: 涉猎Java相关的技术栈，同时也包括自己的一些天马行空。
+keywords: "Java, mysql, spring, springcloud, springboot, redis"
+author: 孙大旺
+language: zh-CN
 timezone: ''
 
 # URL
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: hexo-theme-icarus
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
