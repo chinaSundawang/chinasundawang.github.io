@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>首页</title>
-    <url>/2022/05/09/index/</url>
-    <content><![CDATA[<h2 id="欢迎各位的访问。"><a href="#欢迎各位的访问。" class="headerlink" title="欢迎各位的访问。"></a>欢迎各位的访问。</h2>]]></content>
-  </entry>
-  <entry>
     <title>工作</title>
     <url>/2022/05/11/page/</url>
-    <content><![CDATA[<h1 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志"></a>工作日志</h1><h2 id="OBE-工作日志"><a href="#OBE-工作日志" class="headerlink" title="OBE 工作日志"></a>OBE 工作日志</h2><span id="more"></span>
+    <content><![CDATA[<h1 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志 "></a><center>工作日志 </center></h1><h2 id="OBE-工作日志"><a href="#OBE-工作日志" class="headerlink" title="OBE 工作日志"></a><center>OBE 工作日志</center></h2><span id="more"></span>
 <h3 id="达成目标"><a href="#达成目标" class="headerlink" title="达成目标"></a>达成目标</h3><ul>
 <li>将人才培养模块熟悉并调试</li>
 <li>整理调试过程中遇到的问题</li>
@@ -51,5 +46,16 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>wordhard</category>
+      </categories>
+      <tags>
+        <tag>workharding</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>首页</title>
+    <url>/2022/05/09/index/</url>
+    <content><![CDATA[<h2 id="欢迎各位的访问。"><a href="#欢迎各位的访问。" class="headerlink" title=" 欢迎各位的访问。"></a><center> 欢迎各位的访问。</center></h2>]]></content>
   </entry>
 </search>
