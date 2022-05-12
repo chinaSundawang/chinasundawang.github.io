@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"ture","show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="工作日志2022年5月11日 工作日志">
+  <meta name="description" content="工作日志OBE 工作日志">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工作">
 <meta property="og:url" content="http://example.com/2022/05/11/page/index.html">
 <meta property="og:site_name" content="孙大旺的个人博客">
-<meta property="og:description" content="工作日志2022年5月11日 工作日志">
+<meta property="og:description" content="工作日志OBE 工作日志">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://imgur.com/NpLknDT.png">
 <meta property="article:published_time" content="2022-05-11T05:57:21.000Z">
-<meta property="article:modified_time" content="2022-05-11T09:34:34.506Z">
+<meta property="article:modified_time" content="2022-05-12T09:17:26.549Z">
 <meta property="article:author" content="孙大旺">
 <meta property="article:tag" content="Java, mysql, spring, springcloud, springboot, redis">
 <meta name="twitter:card" content="summary">
@@ -216,10 +216,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-05-11 13:57:21 / 修改时间：17:34:34" itemprop="dateCreated datePublished" datetime="2022-05-11T13:57:21+08:00">2022-05-11</time>
+              <time title="创建时间：2022-05-11 13:57:21" itemprop="dateCreated datePublished" datetime="2022-05-11T13:57:21+08:00">2022-05-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-12 17:17:26" itemprop="dateModified" datetime="2022-05-12T17:17:26+08:00">2022-05-12</time>
+              </span>
 
           
 
@@ -232,19 +238,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志"></a>工作日志</h1><h2 id="2022年5月11日-工作日志"><a href="#2022年5月11日-工作日志" class="headerlink" title="2022年5月11日 工作日志"></a>2022年5月11日 工作日志</h2><span id="more"></span>
+        <h1 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志"></a>工作日志</h1><h2 id="OBE-工作日志"><a href="#OBE-工作日志" class="headerlink" title="OBE 工作日志"></a>OBE 工作日志</h2><span id="more"></span>
 <h3 id="达成目标"><a href="#达成目标" class="headerlink" title="达成目标"></a>达成目标</h3><ul>
 <li>将人才培养模块熟悉并调试</li>
-<li>整理调试过程中遇到的问题<h3 id="问题或建议"><a href="#问题或建议" class="headerlink" title="问题或建议"></a>问题或建议</h3></li>
+<li>整理调试过程中遇到的问题</li>
+<li>整理obe项目数据流向<h3 id="问题或建议"><a href="#问题或建议" class="headerlink" title="问题或建议"></a>问题或建议</h3></li>
 </ul>
 <ol>
 <li>支持筛选学院，但列表为展示学院信息。<br><img src="https://imgur.com/NpLknDT.png" alt=""></li>
 <li>人陪信息-所属专业保存不成功  (默认是测试专业)</li>
 <li>同时修改多个培养目标，只保存最后一个修改过的</li>
 <li>课程体系接口有点慢</li>
-<li>毕业条件接口存在循环调用问题<h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3></li>
+<li>毕业条件接口存在循环调用问题</li>
+<li>课程体系查询存在重复查询问题 planCode = PL202204071119520566</li>
+<li>提交毕业要求接口（/graduate/status/）权重配置错误的情况 未正确返回提示。<h3 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h3></li>
 <li>为什么直接用name查询，不用code进行查询</li>
 </ol>
+<h3 id="页面及相关表"><a href="#页面及相关表" class="headerlink" title="页面及相关表"></a>页面及相关表</h3><h4 id="人才培养方案"><a href="#人才培养方案" class="headerlink" title="人才培养方案"></a>人才培养方案</h4><ul>
+<li>人才培养方案列表 - /plans : obe_cultivation_plan (人陪表)</li>
+<li>删除人陪信息 - /plan/delete : obe_cultivation_plan</li>
+<li>提交审核 - /plan/auditing/{planCode} : obe_cultivation_plan</li>
+<li>人才方案撰写: <ul>
+<li>人陪信息 <ul>
+<li>保存人陪信息 - /plan : obe_cultivation_plan、obe_plan_class（人培班级关系表）</li>
+</ul>
+</li>
+<li>培养目标 <ul>
+<li>提交培养目标 - /goals/status : obe_plan_status </li>
+<li>保存培养目标拆分点 - /goals/split : obe_goals （培养目标关系表）、obe_goals_split （培养目标拆解表）</li>
+<li>保存培养目标 - /goals : obe_goals</li>
+</ul>
+</li>
+<li>毕业要求 <ul>
+<li>保存毕业要求 - /graduate : obe_graduate (毕业要求表)</li>
+<li>保存拆解指标点 - graduate/split : obe_graduate 、obe_graduate_split(毕业要求拆解表)</li>
+<li>提交毕业要求 - /graduate/status/{planCode} : obe_plan_status</li>
+<li>查询毕业要求模板信息 - /graduate/templates : obe_graduate_template (毕业要求模板表)</li>
+<li>查询毕业要求信息 - /graduate/info : obe_graduate 、obe_graduate_split</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -323,7 +358,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97"><span class="nav-number">1.</span> <span class="nav-text">工作日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2022%E5%B9%B45%E6%9C%8811%E6%97%A5-%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97"><span class="nav-number">1.1.</span> <span class="nav-text">2022年5月11日 工作日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%BE%E6%88%90%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">达成目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%88%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题或建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">疑问</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97"><span class="nav-number">1.</span> <span class="nav-text">工作日志</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#OBE-%E5%B7%A5%E4%BD%9C%E6%97%A5%E5%BF%97"><span class="nav-number">1.1.</span> <span class="nav-text">OBE 工作日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%BE%E6%88%90%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.1.</span> <span class="nav-text">达成目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%88%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.1.2.</span> <span class="nav-text">问题或建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%96%91%E9%97%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">疑问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E5%8F%8A%E7%9B%B8%E5%85%B3%E8%A1%A8"><span class="nav-number">1.1.4.</span> <span class="nav-text">页面及相关表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%BA%E6%89%8D%E5%9F%B9%E5%85%BB%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">人才培养方案</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
