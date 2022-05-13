@@ -40,10 +40,50 @@
 <li>提交毕业要求 - /graduate/status/{planCode} : obe_plan_status</li>
 <li>查询毕业要求模板信息 - /graduate/templates : obe_graduate_template (毕业要求模板表)</li>
 <li>查询毕业要求信息 - /graduate/info : obe_graduate 、obe_graduate_split</li>
+<li>查询毕业要求支撑矩阵 <ul>
+<li>/graduate/split/matrix/{planCode} : obe_graduate_split、obe_graduate、obe_goals_graduate_weight（课程体系与毕业要求权重矩阵）、obe_goals、obe_goals_split</li>
+</ul>
+</li>
+<li>保存毕业要求支撑矩阵的权重  <ul>
+<li>/graduate/split/matrix/weight : obe_goals_graduate_weight</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>课程体系 <ul>
+<li>保存课程体系 - /courseSystem : obe_course_system (课程体系表)</li>
+<li>查询课程体系 <ul>
+<li>/courseSystemList/{planCode} : obe_course_system 、obe_cultivation_plan </li>
+</ul>
+</li>
+<li>查询课程体系统计信息 <ul>
+<li>/courseSystem/statistics/{planCode} : obe_course_system</li>
+</ul>
+</li>
+<li>查询课程体系支撑矩阵 <ul>
+<li>/courseSystem/matrix/{planCode} : obe_graduate_split、obe_graduate、obe_course_graduate_weight（课程体系与毕业要求权重矩阵）、obe_course_system、obe_cultivation_plan</li>
+</ul>
+</li>
+<li>保存课程体系支撑矩阵的权重 <ul>
+<li>/courseSystem/matrix/weight : obe_course_graduate_weight</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>毕业条件<ul>
+<li>保存扩展信息 - /planCertificate/extra : obe_plan_extra (人培方案毕业条件)</li>
+<li>查询扩展信息 - /planCertificate/extra/info/{planCode} : obe_plan_extra</li>
+<li>保存取证要求 - /planCertificate : obe_plan_certificate (人陪需要证书表)</li>
+</ul>
+</li>
+<li>其他说明<ul>
+<li><strong>同毕业条件</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>如图 :</li>
+<li><img src="https://imgur.com/INaUOdV.png" alt=""></li>
 </ul>
 ]]></content>
       <categories>
