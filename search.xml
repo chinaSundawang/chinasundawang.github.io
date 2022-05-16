@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>首页</title>
+    <url>/2022/05/09/index/</url>
+    <content><![CDATA[<h2 id="欢迎各位的访问。"><a href="#欢迎各位的访问。" class="headerlink" title=" 欢迎各位的访问。"></a><center> 欢迎各位的访问。</center></h2>]]></content>
+  </entry>
+  <entry>
     <title>工作</title>
     <url>/2022/05/11/page/</url>
     <content><![CDATA[<h1 id="工作日志"><a href="#工作日志" class="headerlink" title="工作日志 "></a><center>工作日志 </center></h1><h2 id="OBE-工作日志"><a href="#OBE-工作日志" class="headerlink" title="OBE 工作日志"></a><center>OBE 工作日志</center></h2><span id="more"></span>
@@ -83,8 +88,15 @@
 </ul>
 </li>
 <li>如图 :</li>
-<li><img src="https://imgur.com/INaUOdV.png" alt=""></li>
+<li><img src="https://imgur.com/INaUOdV.png" alt=""><h2 id="2022年5月16日-工作日志"><a href="#2022年5月16日-工作日志" class="headerlink" title="2022年5月16日 工作日志"></a>2022年5月16日 工作日志</h2><h3 id="达成目标-1"><a href="#达成目标-1" class="headerlink" title="达成目标"></a>达成目标</h3></li>
+<li>将课程大纲模板问题解决</li>
+<li>泳道图设计<h3 id="问题或建议-1"><a href="#问题或建议-1" class="headerlink" title="问题或建议"></a>问题或建议</h3></li>
 </ul>
+<ol>
+<li>课程大纲编辑选择人才方案为空，应该有问题 待改进。</li>
+<li><h3 id="疑问-1"><a href="#疑问-1" class="headerlink" title="疑问"></a>疑问</h3></li>
+</ol>
+<h3 id="课程大纲管理如下图"><a href="#课程大纲管理如下图" class="headerlink" title="课程大纲管理如下图"></a>课程大纲管理如下图</h3><p><img src="https://imgur.com/7os0x3L.png" alt=""></p>
 ]]></content>
       <categories>
         <category>wordhard</category>
@@ -92,10 +104,5 @@
       <tags>
         <tag>workharding</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>首页</title>
-    <url>/2022/05/09/index/</url>
-    <content><![CDATA[<h2 id="欢迎各位的访问。"><a href="#欢迎各位的访问。" class="headerlink" title=" 欢迎各位的访问。"></a><center> 欢迎各位的访问。</center></h2>]]></content>
   </entry>
 </search>
