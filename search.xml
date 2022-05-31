@@ -8,15 +8,13 @@
   <entry>
     <title>2022真实面试题整理</title>
     <url>/2022/05/31/2022%E7%9C%9F%E5%AE%9E%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
-    <content><![CDATA[<span id="more"></span>
-<h3 id="在一场面试中你会被问到什么取决于下面这些因素："><a href="#在一场面试中你会被问到什么取决于下面这些因素：" class="headerlink" title="在一场面试中你会被问到什么取决于下面这些因素："></a>在一场面试中你会被问到什么取决于下面这些因素：</h3><ul>
+    <content><![CDATA[<h3 id="在一场面试中你会被问到什么取决于下面这些因素："><a href="#在一场面试中你会被问到什么取决于下面这些因素：" class="headerlink" title="在一场面试中你会被问到什么取决于下面这些因素："></a>在一场面试中你会被问到什么取决于下面这些因素：</h3><ul>
 <li>你的经验</li>
 <li>你的技术背景</li>
 <li>你面试的职位</li>
 <li>你面试的公司</li>
-<li>运气</li>
-</ul>
-<h3 id="explain各个字段代表的意思"><a href="#explain各个字段代表的意思" class="headerlink" title="explain各个字段代表的意思"></a>explain各个字段代表的意思</h3><ul>
+<li>运气<span id="more"></span>
+<h3 id="explain各个字段代表的意思"><a href="#explain各个字段代表的意思" class="headerlink" title="explain各个字段代表的意思"></a>explain各个字段代表的意思</h3></li>
 <li>id ：select查询的序列号，包含一组数字，表示查询中执行select子句或操作表的顺序</li>
 <li>select_type ：查询类型 或者是 其他操作类型</li>
 <li>table ：正在访问哪个表</li>
