@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>孙大旺的个人博客</title>
+  <title>大旺的个人博客</title>
   
   <subtitle>聊聊自己的技术与想法</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>http://example.com/</id>
   
   <author>
-    <name>孙大旺</name>
+    <name>大旺</name>
     
   </author>
   
