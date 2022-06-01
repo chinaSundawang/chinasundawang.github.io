@@ -3,18 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 孙大旺的个人博客
+title: 大旺的个人博客
 subtitle: 聊聊自己的技术与想法
 description: 涉猎Java相关的技术栈，及一些头脑风暴。
 keywords: "Java, mysql, spring, springcloud, springboot, redis"
-author: 孙大旺
+author: 大旺
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://example.com
-permalink: :year/:month/:day/:title/
+permalink: post/:abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
