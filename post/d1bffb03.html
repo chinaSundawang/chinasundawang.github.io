@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":"ture","show_result":false,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Spring Boot从入门到实战章为忠">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot从入门到实战">
+<meta property="og:url" content="http://example.com/post/d1bffb03.html">
+<meta property="og:site_name" content="大旺的个人博客">
+<meta property="og:description" content="Spring Boot从入门到实战章为忠">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imgur.com/dfyaEkj.png">
+<meta property="og:image" content="https://imgur.com/sA23vT6.png">
+<meta property="og:image" content="https://imgur.com/7VtCV8m.png">
+<meta property="article:published_time" content="2022-07-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-04T09:30:33.173Z">
+<meta property="article:author" content="大旺">
+<meta property="article:tag" content="学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imgur.com/dfyaEkj.png">
+
+<link rel="canonical" href="http://example.com/post/d1bffb03.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Spring Boot从入门到实战 | 大旺的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="大旺的个人博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">大旺的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">聊聊自己的技术与想法</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/post/d1bffb03.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="大旺">
+      <meta itemprop="description" content="涉猎Java相关的技术栈，及一些头脑风暴。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="大旺的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring Boot从入门到实战
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-04 00:00:00 / 修改时间：17:30:33" itemprop="dateCreated datePublished" datetime="2022-07-04T00:00:00+08:00">2022-07-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/d1bffb03.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/d1bffb03.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Spring-Boot从入门到实战"><a href="#Spring-Boot从入门到实战" class="headerlink" title="Spring Boot从入门到实战"></a>Spring Boot从入门到实战</h2><h3 id="章为忠"><a href="#章为忠" class="headerlink" title="章为忠"></a>章为忠</h3><span id="more"></span>
+<h4 id="初识SpringBoot"><a href="#初识SpringBoot" class="headerlink" title="初识SpringBoot"></a>初识SpringBoot</h4><h5 id="◆-1-1-Spring-Boot是什么"><a href="#◆-1-1-Spring-Boot是什么" class="headerlink" title="◆ 1.1 Spring Boot是什么"></a>◆ 1.1 Spring Boot是什么</h5><blockquote>
+<blockquote>
+<p><strong>spring boot 特性</strong></p>
+<ol>
+<li>快速创建一键运行的spring应用。</li>
+<li>能够使用内置的tomcat、jetty服务器，不需要部署war文件。</li>
+<li>提供定制化的启动器starters，简化第三方依赖配置，开箱即用。</li>
+<li>零代码生成和零XML配置，自动配置Spring。</li>
+<li>提供可以直接在生产环境中使用的特性，如性能指标、健康检查、属性配置等。</li>
+</ol>
+<p><strong>Spring Boot的核心组件</strong></p>
+<p><img src="https://imgur.com/dfyaEkj.png" alt=""></p>
+</blockquote>
+</blockquote>
+<h5 id="◆-1-2-Spring-Boot的优点"><a href="#◆-1-2-Spring-Boot的优点" class="headerlink" title="◆ 1.2 Spring Boot的优点"></a>◆ 1.2 Spring Boot的优点</h5><blockquote>
+<blockquote>
+<p>spring boot 的优点。</p>
+<ol>
+<li>遵循“约定优于配置”的原则，使用Spring Boot只需要很少的配置或使用默认的配置。</li>
+<li>使用JavaConfig，避免使用XML的烦琐。</li>
+<li>提供Starters（启动器），简化Maven配置，避免依赖冲突。</li>
+<li>提供内嵌Servlet容器，可选择内嵌Tomcat、Jetty等容器，不需要单独的Web服务器。这意味着不再需要启动Tomcat或其他任何中间件。</li>
+<li>提供了一系列项目中常见的非功能特性，如安全监控、应用监控、健康检测等。</li>
+<li>与云计算、微服务的天然集成。</li>
+</ol>
+<p>Spring Boot的优点可以<u>概括</u>为以下几个方面：</p>
+<ol>
+<li><strong>快速构建</strong>：使用Spring Initializr可以快速创建项目，同时提供了丰富的解决方案，便于快速集成各种解决方案，提升开发效率。</li>
+<li><strong>简化依赖</strong>：提供丰富的Starters，简化Maven配置，避免版本兼容问题。</li>
+<li><strong>一键部署</strong>：内嵌Servlet容器，如Tomcat、Jetty，能够直接打包成可执行JAR文件独立运行，支持Jenkins、Docker，轻松实现自动化运维。</li>
+<li><strong>应用监控</strong>：自带Actuator监控组件，轻松监控服务的各项状态。使用Spring BootAdmin可以轻松部署功能完善的应用监控系统。</li>
+</ol>
+<p>Spring Boot让<strong>构建、编码、配置、部署、监控</strong>都变得非常简单。</p>
+<blockquote>
+<p>主要干了以上这五件事</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h5 id="◆-1-4-什么是“约定优于配置”"><a href="#◆-1-4-什么是“约定优于配置”" class="headerlink" title="◆ 1.4 什么是“约定优于配置”"></a>◆ 1.4 什么是“约定优于配置”</h5><blockquote>
+<blockquote>
+<p>就是spring 提供了相应的规范， 我们遵守对应的规范就可以开箱即用，如果遇到与实际业务不符的配置，在进行独立配置即可</p>
+</blockquote>
+</blockquote>
+<h5 id="◆-1-5-Spring、Spring-Boot和Spring-Cloud的关系"><a href="#◆-1-5-Spring、Spring-Boot和Spring-Cloud的关系" class="headerlink" title="◆ 1.5 Spring、Spring Boot和Spring Cloud的关系"></a>◆ 1.5 Spring、Spring Boot和Spring Cloud的关系</h5><blockquote>
+<blockquote>
+<p>Spring是一个开源生态体系，是集大成者。其<strong>核心</strong>是<strong>控制反转</strong>（Inversion ofControl，<strong>IoC</strong>）和<strong>面向切面编程</strong>（Aspect Oriented Programming，<strong>AOP</strong>）</p>
+<p>springCloud就是一套分布式微服务治理框架，springCloud 提供各种组件来治理与维护微服务系统 比如 <strong>通信、熔断、监控</strong>等</p>
+<p><strong>Spring、Spring Boot和Spring Cloud的关系</strong></p>
+<p><img src="https://imgur.com/sA23vT6.png" alt=""></p>
+</blockquote>
+</blockquote>
+<h4 id="SpringBoot使用"><a href="#SpringBoot使用" class="headerlink" title="SpringBoot使用"></a>SpringBoot使用</h4><h5 id="◆-2-1-创建Spring-Boot项目的细节"><a href="#◆-2-1-创建Spring-Boot项目的细节" class="headerlink" title="◆ 2.1 创建Spring Boot项目的细节"></a>◆ 2.1 创建Spring Boot项目的细节</h5><blockquote>
+<blockquote>
+<p><strong>pom.xml的一些属性说明</strong></p>
+<ul>
+<li><p>groupId：项目的包路径。</p>
+</li>
+<li><p>artifactId：项目名称。</p>
+</li>
+<li>version：项目版本号。</li>
+<li>packaging：一般有jar、war两个值，表示使用Maven打包时是构建成JAR包还是WAR包。</li>
+<li>name：项目名称。</li>
+<li>description：项目描述。</li>
+</ul>
+<p>spring Boot体系内的依赖组件不需要填写具体版本号，spring-boot-starter-parent维护了体系内所有依赖包的版本信息。</p>
+<p><strong>构建时需要的公共变量</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">	&lt;!-- 项目构建时所使用的的编码 --&gt;</span><br><span class="line">	&lt;project.build.sourceEncoding&gt;UTF-<span class="number">8</span>&lt;/project.build.sourceEncod ing&gt;</span><br><span class="line">	&lt;!-- 输出所使用的的编码 --&gt;</span><br><span class="line">	&lt;project.reporting.outputEncoding&gt;UTF-<span class="number">8</span>&lt;/project.reporting.out putEncoding&gt;</span><br><span class="line">	&lt;!-- JDK版本 --&gt;</span><br><span class="line">	&lt;java. version&gt;<span class="number">1.8</span>&lt;/java.version&gt; </span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 以上是一些基础配置 </p>
+</blockquote>
+<p>@RestController 主要用于RESTful接口。</p>
+<p>可以说@RestController是@Controller与@ResponseBody的结合体，因而具有两个标注合并起来的作用。</p>
+</blockquote>
+</blockquote>
+<h5 id="◆-2-2-单元测试"><a href="#◆-2-2-单元测试" class="headerlink" title="◆ 2.2 单元测试"></a>◆ 2.2 单元测试</h5><blockquote>
+<blockquote>
+<p><strong>利用java调用Controller接口方法</strong></p>
+<ul>
+<li><p>我们如果想要利用java 调用 rest api接口 则使用<strong>MockMvc</strong></p>
+</li>
+<li><p>MockMvc能够模拟HTTP请求，使用网络的形式请求Controller中的方法，这样可以使得测试速度快、不依赖网络环境，而且它提供了一套完善的结果验证工具，测试和验证也非常简单、高效</p>
+</li>
+<li>使用@WebMvcTest等注解实现模拟HTTP请求测试</li>
+<li>如果接口有登录验证，则需要通过MockHttpSession注入用户登录信息，或者修改登录拦截器取消对单元测试的登录验证。</li>
+</ul>
+<blockquote>
+<p>具体的实现见书中代码</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h5 id="◆-2-3-开发环境热部署"><a href="#◆-2-3-开发环境热部署" class="headerlink" title="◆ 2.3 开发环境热部署"></a>◆ 2.3 开发环境热部署</h5><blockquote>
+<blockquote>
+<p>spring-boot-devtools组件，使得无须手动重启Spring Boot应用即可重新编译、启动项目，大大缩短编译、启动的时间，从而提高开发效率。</p>
+<blockquote>
+<p>引个Jar包进来</p>
+</blockquote>
+<p>spring-boot-devtools的<strong>核心是两个类加载器</strong>（ClassLoader）：</p>
+<ul>
+<li><p>一个是Base类加载器（Base ClassLoader），负责加载那些不会改变的类，如第三方JAR包等；</p>
+</li>
+<li><p>另一个是Restart类加载器（Restart ClassLoader），负责加载那些正在开发的会改变的类</p>
+</li>
+</ul>
+<blockquote>
+<p>两个自定义加载器。</p>
+</blockquote>
+<p>devtools只会重新加载被修改的类文件，不会重新加载其他第三方的JAR包，所以重启较快，从而达到热部署的效果</p>
+<blockquote>
+<p>这也算热部署的原理吧</p>
+</blockquote>
+<p>有监听器的实现吧devtools会监听classpath下的文件变动，当文件被修改时会重新编译，重新生成类文件；devtools监听到类文件变动，触发Restart类加载器重新加载该类，从而实现类文件和属性文件的热部署</p>
+<p>devtools也可以实现前台页面热部署</p>
+</blockquote>
+</blockquote>
+<h4 id="SpringBoot的系统配置"><a href="#SpringBoot的系统配置" class="headerlink" title="SpringBoot的系统配置"></a>SpringBoot的系统配置</h4><h5 id="◆-3-1-系统配置文件"><a href="#◆-3-1-系统配置文件" class="headerlink" title="◆ 3.1 系统配置文件"></a>◆ 3.1 系统配置文件</h5><ul>
+<li>本章的主要内容</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>包括application.properties和application.yml配置文件的使用</p>
+<p>以及YML和Properties配置文件有什么区别？</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><strong>配置文件加载顺序</strong></li>
+</ul>
+<blockquote>
+<blockquote>
+<ol>
+<li>项目根目录下的config目录。</li>
+<li>项目根目录。</li>
+<li>classpath下的config目录。</li>
+<li>classpath目录</li>
+</ol>
+<p><img src="https://imgur.com/7VtCV8m.png" alt=""></p>
+<ul>
+<li>application.properties文件的优先级按照上面列出的顺序依次降低</li>
+<li>如果同一个属性同时出现在4个文件中，以优先级高的文件为准。</li>
+</ul>
+<p>修改默认配置文件名可能有人会问，项目的配置文件必须命名为application.properties吗？</p>
+<p>当然不是，我们可以通过修改项目启动类，调用SpringApplicationBuilder类的properties()方法来实现自定义配置文件名称</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>YML相关</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>YML文件虽然格式<strong>简洁直观，但是对格式要求较高</strong>，使用YML配置文件时需要注意以下几点：</p>
+<ol>
+<li>属性值和冒号中间必须有空格，如name: Weiz正确，使用name:Weiz就会报错。</li>
+<li>需要注意各属性之间的缩进和对齐。</li>
+<li>缩进不允许使用tab，只允许空格。</li>
+<li>属性和值区分字母大小写。</li>
+</ol>
+<p>YML 支持数组、JSON对象、Map 等多种数据类型</p>
+</blockquote>
+</blockquote>
+<p>可以使用双引号（””）来转义字符串中的特殊字符</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name: <span class="string">&quot;zhangsan \n lisi&quot;</span></span><br></pre></td></tr></table></figure>
+<p>上面的示例的输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">zhangsan</span><br><span class="line">lisi</span><br></pre></td></tr></table></figure>
+<p>使用单引号（’’）不会转义特殊字符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name: &#x27;zhangsan \n lisi&#x27;</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zhangsan \n lisi</span><br></pre></td></tr></table></figure>
+<p><strong>Properties与YML配置文件的区别</strong></p>
+<ol>
+<li>YML文件以数据为中心，对数据的支持和展现非常友好</li>
+<li>Properties文件对格式的要求没那么严格，而YML文件以空格的缩进来控制层级关系，对格式要求比较高，缩进格式不对时容易出错</li>
+<li>Properties 文件支持@PropertySource注解，而YML文件不支持</li>
+<li>YML文件支持多文档块的使用方式，使用起来非常的灵活</li>
+<li><strong>Properties 配置的优先级高于YML文件</strong>。因为YML文件的加载顺序先与Properties文件，如果两个文件存在相同的配置，后面加载的Properties中的配置会覆盖前面YML中的配置。</li>
+</ol>
+<p>自定义系统的启动图案</p>
+<ul>
+<li>在项目的resources目录下新建banner.txt文件</li>
+</ul>
+<h5 id="◆-3-2-自定义配置项"><a href="#◆-3-2-自定义配置项" class="headerlink" title="◆ 3.2 自定义配置项"></a>◆ 3.2 自定义配置项</h5><p>@Value获取配置的注意事项</p>
+<ol>
+<li>使用@Value注解时，所在类必须被Spring容器管理</li>
+<li>需要传入完整的配置项的key值</li>
+<li>@Value注解默认读取application.properties配置文件，如果需要使用其他的配置文件，可以通过@PropertySource注解指定对应的配置文件。</li>
+</ol>
+<p>Environment类</p>
+<ul>
+<li>Environment读取的是系统中所有的配置</li>
+<li>使用Environment无须指定配置文件，其获取的是系统加载的全部配置文件中的配置项。</li>
+<li>另一种读取配置的方式把，需要的时候再看把。</li>
+</ul>
+<p>@ConfigurationProperties</p>
+<ul>
+<li>自动化配置需要的三个注解的解释</li>
+</ul>
+<ol>
+<li>@Configuration定义此类为配置类，用于构建bean定义并初始化到Spring容器。</li>
+<li>@ConfigurationProperties(prefix = “com.weiz.resource”)绑定配置项，其中prefix表示所绑定的配置项名的前缀。</li>
+<li>@PropertySource(value = “classpath:website.properties”)指定读取的配置文件及其路径。@PropertySource不支持引入YML文件</li>
+</ol>
+<p>使用配置文件注意事项</p>
+<ol>
+<li>使用YML文件时注意空格和格式缩进。</li>
+<li>Properties文件默认使用的是ISO8859-1编码格式，容易出现乱码问题。如果含有中文，加入spring.http.encoding.charset=UTF-8配置即可。</li>
+<li>Properties配置的优先级高于YML文件。因为YML文件的加载顺序先于Properties文件，如果两个文件存在相同的配置，后面加载的Properties中的配置会覆盖前面YML中的配置。</li>
+<li>@PropertySource注解默认只会加载Properties文件，YML文件不能使用此注解。</li>
+<li>简单值推荐使用@Value，复杂对象推荐使用@ConfigurationProperties。</li>
+<li>只有Spring容器中的组件才能使用容器提供的各类方法，所以，配置读取类需要增加@Component注解才能加入Spring容器中</li>
+</ol>
+<h5 id="◆-3-3-其他配置"><a href="#◆-3-3-其他配置" class="headerlink" title="◆ 3.3 其他配置"></a>◆ 3.3 其他配置</h5><p>配置引用</p>
+<ul>
+<li>Spring Boot支持使用占位符获取之前的属性配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my.name=zhangsan</span><br><span class="line">my.sex=1</span><br><span class="line">my.des=my name is $&#123;my.name&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>真是个可维护性极强的特性了吧</p>
+</li>
+<li><p>可以使用“:”指定默认值，避免没有配置参数导致程序异常</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my.des=My name is $&#123;my.name:weiz&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="◆-3-4-日志配置"><a href="#◆-3-4-日志配置" class="headerlink" title="◆ 3.4 日志配置"></a>◆ 3.4 日志配置</h5><ul>
+<li>简介</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>Spring Boot自带spring-boot-starter-logging库实现系统日志功能，spring-boot-starter-logging组件默认使用LogBack日志记录工具</p>
+<p>在默认情况下，Spring Boot会用LogBack来记录日志，并用INFO级别输出到控制台</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>日志格式</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>Spring Boot提供了logging.pattern.console和logging.pattern.file配置项来定制日志输出格式，只需在application.properties文件中添加logging.pattern.console的配置项即可：</p>
+<p><strong>%thread</strong> 输出日志的进程名，这在Web应用以及异步任务处理中很有用。</p>
+<blockquote>
+<p>可以通过日志调试不同线程之间的问题</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h5 id="◆-3-5-实战：实现系统多环境配置"><a href="#◆-3-5-实战：实现系统多环境配置" class="headerlink" title="◆ 3.5 实战：实现系统多环境配置"></a>◆ 3.5 实战：实现系统多环境配置</h5><blockquote>
+<blockquote>
+<p>创建多环境配置文件时，需要遵循Spring Boot允许的命名约定来命名，格式为application-{profile}.properties，其中{profile}为对应的环境标识</p>
+<p>spring.profiles.active</p>
+<p>配置文件指定项目启动环境</p>
+<p>IDEA编译器指定项目启动环境</p>
+<p>命令行启动指定项目环境</p>
+</blockquote>
+</blockquote>
+<p>几种多环境配置把，需要的时候再看</p>
+<h4 id="web开发"><a href="#web开发" class="headerlink" title="web开发"></a>web开发</h4><h5 id="◆-4-1-Web开发简介"><a href="#◆-4-1-Web开发简介" class="headerlink" title="◆ 4.1 Web开发简介"></a>◆ 4.1 Web开发简介</h5><blockquote>
+<blockquote>
+<p>都包含在spring-boot-starter-web包下@Controller和@RestController注解，以及控制数据返回的@ResponseBody注解</p>
+<p>Spring Boot将传统Web开发的mvc、json、validation、tomcat等框架整合，提供了spring-boot-starter-web组件，简化了Web应用配置、开发的难度，将初学者从繁杂的配置项中解放出来，专注于业务逻辑的实现。</p>
+<p>@RequestMapping 注解 value 支持URL模板、正则表达式。</p>
+</blockquote>
+</blockquote>
+<h5 id="◆-4-2-URL映射"><a href="#◆-4-2-URL映射" class="headerlink" title="◆ 4.2 URL映射"></a>◆ 4.2 URL映射</h5><blockquote>
+<blockquote>
+<p>@PathVariable注解作用在方法参数中，用于表示参数的值来自URL路径</p>
+<p>@RequestMapping支持使用通配符匹配URL</p>
+</blockquote>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/getJson/*.json&quot;)</span> </span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">getJson</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;get json data&quot;</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="◆-4-3-参数传递"><a href="#◆-4-3-参数传递" class="headerlink" title="◆ 4.3 参数传递"></a>◆ 4.3 参数传递</h5><blockquote>
+<blockquote>
+<p>@PathVariable注解的参数支持自动转换一些基本的数据类型，如int、long、date、string等</p>
+<p>@RequestMapping注解支持正则的语法规则如下： {变量名：正则表达式}</p>
+</blockquote>
+</blockquote>
+<p>使用Bean对象接收参数</p>
+<ul>
+<li>JavaBean对象中必须含有默认的构造函数，同时，需要设置属性字段必须有setter方法</li>
+</ul>
+<p>@ResqustBoby接受JSON数据</p>
+<ul>
+<li>@RequestBody主要是将前端传入的JSON数据对象映射成后端的实体对象</li>
+<li>要求如下<ul>
+<li>前端传递的对象属性和类型必须和后端一致</li>
+<li>前端设置要使用JSON数据集进行传递，也就是设置为contentType:”application/json”。</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>@PostMapping注解包含consumes参数，默认为application/json</p>
+<p>当请求这个控制器中的某个URL时，会首先调用这个被注解的方法并将该方法的结果作为公共模型的属性，然后调用对应URL的处理方法，前端页面通过模型获取返回的数据</p>
+<p>需要注意的是，被@ModelAttribute注释的方法会在此控制器的每个方法执行前被执行，因此对于一个控制器映射多个URL，要谨慎使用。</p>
+</blockquote>
+</blockquote>
+<h5 id="◆-4-4-数据验证"><a href="#◆-4-4-数据验证" class="headerlink" title="◆ 4.4 数据验证"></a>◆ 4.4 数据验证</h5><blockquote>
+<blockquote>
+<p>任何客户端传入的数据都不是绝对安全有效的</p>
+</blockquote>
+</blockquote>
+<p>Spring Boot是如何实现数据验证的</p>
+<blockquote>
+<blockquote>
+<p>Spring Boot是从Spring发展而来的，所以自然支持Hibernate Validator和SpringValidation两种方式，默认使用的是Hibernate Validator组件。</p>
+</blockquote>
+</blockquote>
+<p>url参数校验</p>
+<ul>
+<li><p>在方法所在的控制器添加@Validated注解</p>
+</li>
+<li><p>直接在方法参数前面使用相应的校验注解 URL参数校验</p>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>使用@Valid注解是无效的，需要在方法所在的控制器上添加@Validated注解来使得验证生效。</p>
+<p>在属性上添加@Valid注解</p>
+</blockquote>
+</blockquote>
+<p>分组校验</p>
+<ol>
+<li><p>创建接口 用于分组使用</p>
+</li>
+<li><p>java bean 的注解中增加groups 参数，并定义校验规则</p>
+</li>
+<li>在控制器请求的参数中使用 @Validated注解 并增加参数{XXXX.class，Default.class}分组校验</li>
+</ol>
+<h5 id="◆-4-5-拦截器"><a href="#◆-4-5-拦截器" class="headerlink" title="◆ 4.5 拦截器"></a>◆ 4.5 拦截器</h5><blockquote>
+<blockquote>
+<p>拦截用户请求，实现访问权限控制、日志记录、敏感过滤等功能</p>
+</blockquote>
+</blockquote>
+<p>应用场景</p>
+<ol>
+<li><p>权限检查</p>
+</li>
+<li><p>性能监控</p>
+</li>
+<li>通用行为</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>通过WebMvcConfigurer类的addInterceptors方法将刚刚自定义的LoginInterceptor拦截器注入系统中。</p>
+<p>addPathPatterns定义拦截的请求地址。</p>
+<p>excludePathPatterns的作用是排除某些地址不被拦截，例如登录地址/user/login不需要进行登录验证。</p>
+</blockquote>
+</blockquote>
+<h5 id="◆-4-6-过滤器"><a href="#◆-4-6-过滤器" class="headerlink" title="◆ 4.6 过滤器"></a>◆ 4.6 过滤器</h5><blockquote>
+<blockquote>
+<p>过滤器是Java Servlet规范中定义的，能够在HTTP请求发送给Servlet之前对Request（请求）和Response（返回）进行检查和修改，从而起到过滤的作用</p>
+<p>Spring Boot内置了很多过滤器</p>
+<blockquote>
+<p>有时间简单看下， 有没有我们能用的。</p>
+</blockquote>
+<p>自定义过滤器有两种实现方式：</p>
+<ol>
+<li>第一种是使用@WebFilter，</li>
+<li>第二种是使用FilterRegistrationBean</li>
+</ol>
+<p>经过实践之后，发现使用@WebFilter自定义的过滤器优先级顺序不能生效，<strong>因此推荐使用第二种方案</strong>。</p>
+<p><strong>过滤器和拦截器的区别。</strong></p>
+<ol>
+<li>过滤器依赖于Servlet容器，属于Servlet规范的一部分，而拦截器则是独立存在的，可以在任何情况下使用。</li>
+<li>过滤器的执行由Servlet容器回调完成，而拦截器通常通过动态代理的方式来执行。</li>
+<li>过滤器的生命周期由Servlet容器管理，而拦截器可以通过IoC容器来管理，因此可以通过注入等方式来获取其他Bean的实例，因此使用更方便。拦截器和过滤器的执行顺序是：先过滤器后拦截器。具体执行过程为：过滤前→拦截前→执行→拦截后→过滤后。</li>
+</ol>
+<p>Spring Boot提供了FilterRegistrationBean类实现<strong>过滤器注入</strong>，实现自定义过滤器的步骤如下：</p>
+<ol>
+<li>添加自定义Filter类，实现Filter接口，并实现其中的doFilter()方法。</li>
+<li>添加@Configuration注解，将自定义过滤器加入过滤链。</li>
+</ol>
+</blockquote>
+</blockquote>
+<h5 id="◆-4-7-Web配置"><a href="#◆-4-7-Web配置" class="headerlink" title="◆ 4.7 Web配置"></a>◆ 4.7 Web配置</h5><blockquote>
+<blockquote>
+<p>自定义拦截器和消息转换器<br>官方推荐直接实现WebMvcConfigurer接口或者直接继承WebMvcConfigurationSupport类</p>
+<p>WebMvcConfigurer配置类其实是Spring内部的一种配置方式，采用JavaBean的形式来代替传统的XML配置文件形式进行针对框架的个性化定制，可以自定义Handler、Interceptor、ViewResolver、MessageConverter。基于java-based方式的Spring MVC配置需要创建一个配置类并实现WebMvcConfigurer接口。</p>
+<p>Spring Boot可以基于CORS解决跨域问题</p>
+<p>WebMvcConfigurer配置类中的addCorsMappings()方法是专门为开发人员解决跨域而诞生的接口</p>
+<p>CorsRegistry提供了registrations属性，通过getCorsConfigurations()方法设置特定路径的跨域访问。</p>
+</blockquote>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="大旺 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="大旺 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+                <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"><i class="fa fa-tag"></i> 学习</a>
+              
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/8e7e4f10.html" rel="prev" title="南京大屠杀">
+      <i class="fa fa-chevron-left"></i> 南京大屠杀
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E6%88%98"><span class="nav-number">1.</span> <span class="nav-text">Spring Boot从入门到实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%A0%E4%B8%BA%E5%BF%A0"><span class="nav-number">1.1.</span> <span class="nav-text">章为忠</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E8%AF%86SpringBoot"><span class="nav-number">1.1.1.</span> <span class="nav-text">初识SpringBoot</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-1-1-Spring-Boot%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">◆ 1.1 Spring Boot是什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-1-2-Spring-Boot%E7%9A%84%E4%BC%98%E7%82%B9"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">◆ 1.2 Spring Boot的优点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-1-4-%E4%BB%80%E4%B9%88%E6%98%AF%E2%80%9C%E7%BA%A6%E5%AE%9A%E4%BC%98%E4%BA%8E%E9%85%8D%E7%BD%AE%E2%80%9D"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">◆ 1.4 什么是“约定优于配置”</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-1-5-Spring%E3%80%81Spring-Boot%E5%92%8CSpring-Cloud%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">◆ 1.5 Spring、Spring Boot和Spring Cloud的关系</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SpringBoot%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">SpringBoot使用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-2-1-%E5%88%9B%E5%BB%BASpring-Boot%E9%A1%B9%E7%9B%AE%E7%9A%84%E7%BB%86%E8%8A%82"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">◆ 2.1 创建Spring Boot项目的细节</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-2-2-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">◆ 2.2 单元测试</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-2-3-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%83%AD%E9%83%A8%E7%BD%B2"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">◆ 2.3 开发环境热部署</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SpringBoot%E7%9A%84%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.3.</span> <span class="nav-text">SpringBoot的系统配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-3-1-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">◆ 3.1 系统配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-3-2-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">◆ 3.2 自定义配置项</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-3-3-%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">◆ 3.3 其他配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-3-4-%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">◆ 3.4 日志配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-3-5-%E5%AE%9E%E6%88%98%EF%BC%9A%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E5%A4%9A%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">◆ 3.5 实战：实现系统多环境配置</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E5%BC%80%E5%8F%91"><span class="nav-number">1.1.4.</span> <span class="nav-text">web开发</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-1-Web%E5%BC%80%E5%8F%91%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.4.1.</span> <span class="nav-text">◆ 4.1 Web开发简介</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-2-URL%E6%98%A0%E5%B0%84"><span class="nav-number">1.1.4.2.</span> <span class="nav-text">◆ 4.2 URL映射</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-3-%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="nav-number">1.1.4.3.</span> <span class="nav-text">◆ 4.3 参数传递</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-4-%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81"><span class="nav-number">1.1.4.4.</span> <span class="nav-text">◆ 4.4 数据验证</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-5-%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="nav-number">1.1.4.5.</span> <span class="nav-text">◆ 4.5 拦截器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-6-%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="nav-number">1.1.4.6.</span> <span class="nav-text">◆ 4.6 过滤器</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E2%97%86-4-7-Web%E9%85%8D%E7%BD%AE"><span class="nav-number">1.1.4.7.</span> <span class="nav-text">◆ 4.7 Web配置</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="大旺"
+      src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">大旺</p>
+  <div class="site-description" itemprop="description">涉猎Java相关的技术栈，及一些头脑风暴。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">大旺</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'uTwMjRbRD00N5tdBHDni4vSv-gzGzoHsz',
+      appKey     : '3TDoG3bi6L8LfKuKarWsTl2w',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
